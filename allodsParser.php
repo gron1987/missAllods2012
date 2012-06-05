@@ -85,7 +85,10 @@ foreach ( $infoLinks as $itemID ) {
 
     $username = array();
     preg_match_all( "/<td class=\"tcat\" valign=\"top\"><b>(.*)<\/b><\/td>/i", $itemInfo, $username );
-    $username = mb_convert_encoding( $username[ 1 ][ 0 ], 'UTF-8', 'HTML-ENTITIES' );
+    $username = iconv("cp1251","UTF-8",$username[1][0]);
+    if(preg_match("/&#[0-9]/",$username)){
+        $username = mb_convert_encoding( $username, 'UTF-8', 'HTML-ENTITIES' );
+    }
 
     $votes = array();
     $strToFindCp1251 = iconv( "utf-8", "windows-1251", "Голосов за эту работу:" );
