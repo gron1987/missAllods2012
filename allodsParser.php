@@ -4,10 +4,9 @@
  * User: vlogvinskiy
  * Date: 6/5/12
  * Time: 10:10 AM
- * To change this template use File | Settings | File Templates.
  */
 
-$dbConfig = array( 'host' => 'localhost', 'username' => 'root', 'password' => '', 'dbname' => 'test' );
+include "missAllods2012Config.php";
 
 try {
     $pdo = new PDO(
